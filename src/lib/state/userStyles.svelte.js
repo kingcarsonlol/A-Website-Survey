@@ -13,5 +13,16 @@ export const userStyles = $state({
 	],
 	buttonSpace: "w-[15px]",
 	header: ["text-5xl"],
-	card: ["w-300", "h-150", "border-2"]
+	card: {
+		container: ["w-[80%]", "md:w-300", "h-150", "border-2", "bg-white"],
+		heading: {
+			h2: ["text-3xl"],
+			h3: ["text-xl"]
+		},
+	},
+
+	color: {
+		bgType: "",
+		bg: [""],
+	},
 });
