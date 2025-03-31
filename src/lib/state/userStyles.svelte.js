@@ -18,11 +18,21 @@ export const userStyles = $state({
 		heading: {
 			h2: ["text-3xl"],
 			h3: ["text-xl"]
-		},
+		}
 	},
 
-	color: {
-		bgType: "",
-		bg: [""],
-	},
+	colors: {
+		bg: {
+			type: "",
+			solidColor: "#808080", // Default solid color
+			gradient: {
+				startColor: "#ffffff", // Default start color
+				endColor: "#111111", // Default end color
+				degrees: 45 // Default gradient direction
+			}
+		},
+		card: {
+			
+		},
+	}
 });

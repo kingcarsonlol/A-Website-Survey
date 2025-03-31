@@ -20,6 +20,7 @@
 	</header>
 	<section class="flex h-[70vh] w-full items-center justify-center">
 		<div class={userStyles.card.container.join(" ")}>
+			<div class="p-5">
 			{#if currentSlide == 1}
 				<Colors />
 			{:else if currentSlide == 2}
@@ -31,6 +32,7 @@
 			{:else if currentSlide == 5}
 				<Rating />
 			{/if}
+			</div>
 		</div>
 	</section>
 	<footer class="flex h-[15vh] w-[90vw] items-center justify-center md:w-[80vw]">
