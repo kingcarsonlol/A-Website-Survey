@@ -1,5 +1,4 @@
 <script>
-	import { userStyles } from "$lib/state/userStyles.svelte";
 	import { goto } from "$app/navigation";
 	import { Colors, SizeAndSpace, Typography, FormElements, Rating } from "$lib/components/cards";
 

@@ -42,8 +42,6 @@
 			backBtn.style.backgroundColor = userStyles.colors.button.back.bg;
 			backBtn.style.color = userStyles.colors.button.back.text;
 		}
-
-		console.log(userStyles.colors.button.next.bg);
 	});
 </script>
 
