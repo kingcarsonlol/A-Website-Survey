@@ -1,6 +1,6 @@
 <script>
 	import { goto } from "$app/navigation";
-	import { Colors, SizeAndSpace, Typography, FormElements, Rating } from "$lib/components/cards";
+	import { Colors, Size, Typography, FormElements, Rating } from "$lib/components/cards";
 
 	let currentSlide = $state(1);
 
@@ -23,7 +23,7 @@
 				{#if currentSlide == 1}
 					<Colors />
 				{:else if currentSlide == 2}
-					<SizeAndSpace />
+					<Size />
 				{:else if currentSlide == 3}
 					<Typography />
 				{:else if currentSlide == 4}

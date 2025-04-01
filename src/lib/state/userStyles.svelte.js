@@ -46,6 +46,7 @@ export const userStyles = $state({
 		}
 	},
 
+	// TODO: Figure out these default values 
 	sizes: {
 		card: {
 			width: 80,
@@ -64,7 +65,13 @@ export const userStyles = $state({
 		button: {
 			width: 100,
 			height: 30,
-			text: 12,
+			text: 12
+		},
+		form: {
+			rangeSlider: {
+				height: 15,
+				width: 99
+			}
 		}
 	},
 
