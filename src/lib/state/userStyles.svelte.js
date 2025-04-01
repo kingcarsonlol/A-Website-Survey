@@ -46,7 +46,6 @@ export const userStyles = $state({
 		}
 	},
 
-	// TODO: Figure out these default values 
 	sizes: {
 		card: {
 			width: 80,
