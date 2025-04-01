@@ -46,7 +46,27 @@ export const userStyles = $state({
 		}
 	},
 
-	size: {},
+	sizes: {
+		card: {
+			width: 80,
+			height: 80,
+			border: {
+				width: 1,
+				roundness: 1
+			}
+		},
+		text: {
+			surveyTitle: 75,
+			cardTitles: 30,
+			subheadings: 20,
+			content: 12
+		},
+		button: {
+			width: 100,
+			height: 30,
+			text: 12,
+		}
+	},
 
 	spacing: {
 		buttons: 16 // px units
