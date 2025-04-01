@@ -46,11 +46,11 @@
 </script>
 
 <div class="w-full">
-	<h2 class="cardTitle mb-4 text-xl font-bold">Colors</h2>
+	<h2 class="cardTitle">Colors</h2>
 
 	<!-- BACKGROUND COLORS -->
-	<div class="mb-6 border-b pb-4">
-		<h3 class="cardSubHeading mb-2 text-lg font-semibold">Background Color</h3>
+	<div class="cardSubSection">
+		<h3 class="cardSubHeading">Background Color</h3>
 		<div class="mb-2 flex items-center gap-4">
 			<label class="flex items-center">
 				<input
@@ -105,8 +105,8 @@
 	</div>
 
 	<!-- MARGINALIA COLORS -->
-	<div class="mb-6 border-b pb-4">
-		<h3 class="cardSubHeading mb-2 text-lg font-semibold">Marginalia</h3>
+	<div class="cardSubSection">
+		<h3 class="cardSubHeading">Marginalia</h3>
 		<div class="flex flex-col gap-2">
 			<div class="flex items-center">
 				<label class="flex items-center">
@@ -152,8 +152,8 @@
 	</div>
 
 	<!-- CARD COLORS -->
-	<div class="mb-6 border-b pb-4">
-		<h3 class="cardSubHeading mb-2 text-lg font-semibold">Card Color</h3>
+	<div class="cardSubSection">
+		<h3 class="cardSubHeading">Card Color</h3>
 		<div class="flex flex-col gap-2">
 			<label class="flex items-center">
 				Card Background Color
@@ -172,7 +172,7 @@
 
 	<!-- BUTTON COLORS -->
 	<div class="mb-6">
-		<h3 class="cardSubHeading mb-2 text-lg font-semibold">Buttons Color</h3>
+		<h3 class="cardSubHeading">Buttons Color</h3>
 		<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
 			<div class="flex flex-col gap-2">
 				<h4 class="font-medium">Next Button</h4>
