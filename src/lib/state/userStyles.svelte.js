@@ -42,23 +42,27 @@ export const userStyles = $state({
 			back: {
 				bg: "#e5e7eb", // Default Button Gray
 				text: "#000000"
+			},
+			reset: {
+				bg: "#e5e7eb", // Default Button Gray
+				text: "#000000"
 			}
 		}
 	},
 
 	sizes: {
 		card: {
-			width: 80,
-			height: 80,
+			width: 1200,
+			height: 600,
 			border: {
 				width: 1,
 				roundness: 1
 			}
 		},
 		text: {
-			surveyTitle: 75,
+			surveyTitle: 48,
 			cardTitles: 30,
-			subheadings: 20,
+			subheadings: 18,
 			content: 12
 		},
 		button: {

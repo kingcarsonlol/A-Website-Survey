@@ -18,7 +18,7 @@
 		<h1 id="surveyTitle">A Website Survey</h1>
 	</header>
 	<section class="flex h-[70vh] w-full items-center justify-center">
-		<div class="card flex h-150 w-[80%] flex-col border-2 md:w-300">
+		<div class="flex h-150 w-[80%] flex-col border-2 md:w-300" id="card">
 			<div class="flex-1 overflow-y-auto p-5">
 				{#if currentSlide == 1}
 					<Colors />
