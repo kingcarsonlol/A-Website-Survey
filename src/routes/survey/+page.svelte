@@ -7,7 +7,7 @@
 	$effect(() => {
 		if (currentSlide < 1) {
 			goto("/");
-		} else if (currentSlide > 5) {
+		} else if (currentSlide > 3) {
 			goto("/statistics");
 		}
 	});
@@ -31,8 +31,18 @@
 		</div>
 	</section>
 	<footer class="flex h-[15vh] w-full items-center justify-center">
-		<button class="backBtn navButton" onclick={() => currentSlide--}> Back </button>
+		{#if currentSlide != 1}
+			<button class="backBtn navButton" onclick={() => currentSlide--}> Back </button>
+		{:else}
+			<button class="backBtn navButton" disabled> Back </button>
+		{/if}
+
 		<div id="buttonSpace" class="w-[1rem]"></div>
-		<button class="nextBtn navButton" onclick={() => currentSlide++}> Next </button>
+
+		{#if currentSlide != 3}
+			<button class="nextBtn navButton" onclick={() => currentSlide++}> Next </button>
+		{:else}
+			<button class="nextBtn navButton" onclick={() => currentSlide++}> SUBMIT </button>
+		{/if}
 	</footer>
 </div>

@@ -78,7 +78,5 @@ export const userStyles = $state({
 		}
 	},
 
-	spacing: {
-		buttons: 16 // px units
-	}
+	rating: 3,
 });
