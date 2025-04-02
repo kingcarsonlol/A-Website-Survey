@@ -55,8 +55,8 @@ export const userStyles = $state({
 			width: 1200,
 			height: 600,
 			border: {
-				width: 1,
-				roundness: 1
+				width: 2,
+				roundness: 0
 			}
 		},
 		text: {

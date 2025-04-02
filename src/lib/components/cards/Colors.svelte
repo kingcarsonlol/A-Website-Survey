@@ -188,74 +188,89 @@
 		</div>
 	</div>
 
-	<!-- MARGINALIA COLORS -->
-	<div class="cardSubSection">
-		<h3 class="cardSubHeading">Marginalia</h3>
-		<div class="flex flex-col gap-2">
-			<div class="flex items-center">
+	<!-- Cards and Margins -->
+	<div class="cardSubSection grid grid-cols-1 md:grid-cols-2">
+		<!-- CARD COLORS -->
+		<div>
+			<h3 class="cardSubHeading">Card Color</h3>
+			<div class="flex flex-col gap-2">
 				<label class="flex items-center">
-					<input
-						type="checkbox"
-						bind:checked={userStyles.colors.marginalia.header.ownBg}
-						class="mr-2"
-					/>
-					Header should be colored
+					Card Background Color
+					<input type="color" bind:value={userStyles.colors.card.bg} class="ml-2" />
 				</label>
-				{#if userStyles.colors.marginalia.header.ownBg}
-					<label class="ml-4 flex items-center">
-						|| Color
-						<input type="color" bind:value={userStyles.colors.marginalia.header.bg} class="ml-2" />
-					</label>
-				{/if}
-			</div>
-
-			<div class="flex items-center">
 				<label class="flex items-center">
-					<input
-						type="checkbox"
-						bind:checked={userStyles.colors.marginalia.footer.ownBg}
-						class="mr-2"
-					/>
-					Footer should be colored
+					Card Text Color
+					<input type="color" bind:value={userStyles.colors.card.text} class="ml-2" />
 				</label>
-				{#if userStyles.colors.marginalia.footer.ownBg}
-					<label class="ml-4 flex items-center">
-						|| Color
-						<input type="color" bind:value={userStyles.colors.marginalia.footer.bg} class="ml-2" />
-					</label>
-				{/if}
-			</div>
-
-			<div>
 				<label class="flex items-center">
-					Survey Title Color
-					<input type="color" bind:value={userStyles.colors.marginalia.header.text} class="ml-2" />
+					Card Border Color
+					<input type="color" bind:value={userStyles.colors.card.border} class="ml-2" />
 				</label>
 			</div>
 		</div>
-	</div>
 
-	<!-- CARD COLORS -->
-	<div class="cardSubSection">
-		<h3 class="cardSubHeading">Card Color</h3>
-		<div class="flex flex-col gap-2">
-			<label class="flex items-center">
-				Card Background Color
-				<input type="color" bind:value={userStyles.colors.card.bg} class="ml-2" />
-			</label>
-			<label class="flex items-center">
-				Card Text Color
-				<input type="color" bind:value={userStyles.colors.card.text} class="ml-2" />
-			</label>
-			<label class="flex items-center">
-				Card Border Color
-				<input type="color" bind:value={userStyles.colors.card.border} class="ml-2" />
-			</label>
+		<!-- MARGINALIA COLORS -->
+		<div>
+			<h3 class="cardSubHeading">Marginalia</h3>
+			<div class="flex flex-col gap-2">
+				<div class="flex items-center">
+					<label class="flex items-center">
+						<input
+							type="checkbox"
+							bind:checked={userStyles.colors.marginalia.header.ownBg}
+							class="mr-2"
+						/>
+						Header should be colored
+					</label>
+					{#if userStyles.colors.marginalia.header.ownBg}
+						<label class="ml-4 flex items-center">
+							|| Color
+							<input
+								type="color"
+								bind:value={userStyles.colors.marginalia.header.bg}
+								class="ml-2"
+							/>
+						</label>
+					{/if}
+				</div>
+
+				<div class="flex items-center">
+					<label class="flex items-center">
+						<input
+							type="checkbox"
+							bind:checked={userStyles.colors.marginalia.footer.ownBg}
+							class="mr-2"
+						/>
+						Footer should be colored
+					</label>
+					{#if userStyles.colors.marginalia.footer.ownBg}
+						<label class="ml-4 flex items-center">
+							|| Color
+							<input
+								type="color"
+								bind:value={userStyles.colors.marginalia.footer.bg}
+								class="ml-2"
+							/>
+						</label>
+					{/if}
+				</div>
+
+				<div>
+					<label class="flex items-center">
+						Survey Title Color
+						<input
+							type="color"
+							bind:value={userStyles.colors.marginalia.header.text}
+							class="ml-2"
+						/>
+					</label>
+				</div>
+			</div>
 		</div>
 	</div>
 
 	<!-- BUTTON COLORS -->
-	<div class="mb-6">
+	<div>
 		<h3 class="cardSubHeading">Buttons Color</h3>
 		<div class="grid grid-cols-1 gap-4 md:grid-cols-3">
 			<div class="flex flex-col gap-2">

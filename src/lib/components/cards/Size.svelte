@@ -6,14 +6,14 @@
 		document.getElementById("card").style.height = `${userStyles.sizes.card.height}px`;
 		document.getElementById("card").style.width = `${userStyles.sizes.card.width}px`;
 		document.getElementById("card").style.borderWidth = `${userStyles.sizes.card.border.width}px`;
-		document.getElementById("card").style.borderRadius = `${userStyles.sizes.card.border.roundness}%`;
-
+		document.getElementById("card").style.borderRadius =
+			`${userStyles.sizes.card.border.roundness}%`;
 	});
 </script>
 
 <div class="w-full">
 	<h2 class="cardTitle">Sizes</h2>
-	<div class="grid grid-cols-1 gap-x-20 gap-y-5 md:grid-cols-2">
+	<div class="cardSubSection grid grid-cols-1 gap-x-20 gap-y-5 md:grid-cols-2">
 		<div>
 			<!-- I don't know why this is the only thing that works [hours waster: 2] -->
 			<h3 class="cardSubHeading" style="margin-top: 1px;">Card Sizing</h3>
@@ -160,7 +160,8 @@
 				</div>
 			</div>
 		</div>
-
+	</div>
+	<div class="mt-4 grid grid-cols-1 gap-x-20 gap-y-5 md:grid-cols-2">
 		<div>
 			<h3 class="cardSubHeading" style="margin-top: 1px;">Button Sizing</h3>
 			<div class="grid grid-cols-[30%_70%] gap-y-3 md:grid-cols-[20%_80%]">
