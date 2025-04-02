@@ -26,11 +26,9 @@
 		document.getElementById("surveyTitle").style.color = userStyles.colors.marginalia.header.text;
 
 		// Effects for Card Color Subsection
-		for (const card of document.getElementsByClassName("card")) {
-			card.style.backgroundColor = userStyles.colors.card.bg;
-			card.style.color = userStyles.colors.card.text;
-			card.style.borderColor = userStyles.colors.card.border;
-		}
+		document.getElementById("card").style.backgroundColor = userStyles.colors.card.bg;
+		document.getElementById("card").style.color = userStyles.colors.card.text;
+		document.getElementById("card").style.borderColor = userStyles.colors.card.border;
 
 		// Effect for Button Subsection
 		for (const nextBtn of document.getElementsByClassName("nextBtn")) {
@@ -42,66 +40,152 @@
 			backBtn.style.backgroundColor = userStyles.colors.button.back.bg;
 			backBtn.style.color = userStyles.colors.button.back.text;
 		}
+
+		for (const resetBtn of document.getElementsByClassName("resetBtn")) {
+			resetBtn.style.backgroundColor = userStyles.colors.button.reset.bg;
+			resetBtn.style.color = userStyles.colors.button.reset.text;
+		}
 	});
+
+	function resetColors() {
+		const radios = document.querySelectorAll('input[name="bgType"]'); // Select all radio inputs with name="bgType"
+		for (const radio of radios) {
+			radio.checked = false; // Uncheck each radio input
+		}
+		document.body.style.backgroundImage = "";
+		document.body.style.backgroundColor = "";
+		userStyles.colors = {
+			bg: {
+				type: "",
+				solidColor: "#ffffff", // Default solid color of gray
+				gradient: {
+					startColor: "#ffffff", // Default start color of white
+					endColor: "#111111", // Default end color of black
+					degrees: 45 // Default gradient direction
+				}
+			},
+			marginalia: {
+				header: {
+					ownBg: false,
+					bg: "#ffffff",
+					text: "#111111"
+				},
+				footer: {
+					ownBg: false,
+					bg: "#ffffff"
+				}
+			},
+			card: {
+				bg: "#ffffff", // Default card bg of white
+				text: "#000000",
+				border: "#000000"
+			},
+			button: {
+				next: {
+					bg: "#e5e7eb", // Default Button Gray
+					text: "#000000"
+				},
+				back: {
+					bg: "#e5e7eb", // Default Button Gray
+					text: "#000000"
+				},
+				reset: {
+					bg: "#e5e7eb", // Default Button Gray
+					text: "#000000"
+				}
+			}
+		};
+	}
 </script>
 
 <div class="w-full">
-	<h2 class="cardTitle">Colors</h2>
+	<h2 class="cardTitle">
+		<button class="resetBtn" onclick={resetColors}>
+			<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 21 21"
+				><!-- Icon from System UIcons by Corey Ginnivan - https://github.com/CoreyGinnivan/system-uicons/blob/master/LICENSE --><g
+					fill="none"
+					fill-rule="evenodd"
+					stroke="currentColor"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					><path d="M3.578 6.487A8 8 0 1 1 2.5 10.5" /><path d="M7.5 6.5h-4v-4" /></g
+				></svg
+			>
+		</button>
+		Colors
+	</h2>
 
 	<!-- BACKGROUND COLORS -->
 	<div class="cardSubSection">
 		<h3 class="cardSubHeading">Background Color</h3>
-		<div class="mb-2 flex items-center gap-4">
-			<label class="flex items-center">
-				<input
-					type="radio"
-					name="bgType"
-					value="solid"
-					onchange={() => (userStyles.colors.bg.type = "solid")}
-					class="mr-2"
-				/>
-				Solid
-			</label>
-			<label class="flex items-center">
-				<input
-					type="radio"
-					name="bgType"
-					value="gradient"
-					onchange={() => (userStyles.colors.bg.type = "gradient")}
-					class="mr-2"
-				/>
-				Gradient
-			</label>
-		</div>
-
-		{#if userStyles.colors.bg.type == "solid"}
-			<label class="mb-2 block">
-				Select a Solid Background
-				<input type="color" bind:value={userStyles.colors.bg.solidColor} class="ml-2" />
-			</label>
-		{:else if userStyles.colors.bg.type == "gradient"}
-			<h5 class="mb-2 font-medium">Create a Gradient Background</h5>
-			<div class="flex flex-col gap-2">
-				<label class="flex items-center">
-					Starting Color
-					<input type="color" bind:value={userStyles.colors.bg.gradient.startColor} class="ml-2" />
-				</label>
-				<label class="flex items-center">
-					Ending Color
-					<input type="color" bind:value={userStyles.colors.bg.gradient.endColor} class="ml-2" />
-				</label>
-				<label class="flex items-center">
-					Gradient Direction
-					<input
-						type="range"
-						min="0"
-						max="180"
-						bind:value={userStyles.colors.bg.gradient.degrees}
-						class="ml-2 w-32"
-					/>
-				</label>
+		<div class="grid grid-cols-1 md:grid-cols-2">
+			<div>
+				<div class="mb-2 flex items-center gap-4">
+					<label class="flex items-center">
+						<input
+							type="radio"
+							name="bgType"
+							value="gradient"
+							onchange={() => (userStyles.colors.bg.type = "gradient")}
+							class="mr-2"
+						/>
+						Gradient
+					</label>
+					<label class="flex items-center">
+						<input
+							type="radio"
+							name="bgType"
+							value="solid"
+							onchange={() => (userStyles.colors.bg.type = "solid")}
+							class="mr-2"
+						/>
+						Solid
+					</label>
+				</div>
 			</div>
-		{/if}
+
+			<div>
+				{#if userStyles.colors.bg.type == "solid"}
+					<label class="mb-2 block">
+						Select a Solid Background
+						<input type="color" bind:value={userStyles.colors.bg.solidColor} class="ml-2" />
+					</label>
+				{:else if userStyles.colors.bg.type == "gradient"}
+					<div>
+						<div class="flex flex-col gap-2">
+							<div class="flex flex-row gap-5">
+								<label class="flex items-center">
+									Starting Color
+									<input
+										type="color"
+										bind:value={userStyles.colors.bg.gradient.startColor}
+										class="ml-2"
+									/>
+								</label>
+								<label class="flex items-center">
+									Ending Color
+									<input
+										type="color"
+										bind:value={userStyles.colors.bg.gradient.endColor}
+										class="ml-2"
+									/>
+								</label>
+							</div>
+							<label class="flex items-center">
+								Gradient Direction
+								<input
+									type="range"
+									min="0"
+									max="180"
+									bind:value={userStyles.colors.bg.gradient.degrees}
+									class="ml-2 w-32"
+								/>
+							</label>
+						</div>
+					</div>
+				{/if}
+			</div>
+		</div>
 	</div>
 
 	<!-- MARGINALIA COLORS -->
@@ -173,7 +257,7 @@
 	<!-- BUTTON COLORS -->
 	<div class="mb-6">
 		<h3 class="cardSubHeading">Buttons Color</h3>
-		<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+		<div class="grid grid-cols-1 gap-4 md:grid-cols-3">
 			<div class="flex flex-col gap-2">
 				<h4 class="font-medium">Next Button</h4>
 				<label class="flex items-center">
@@ -195,6 +279,18 @@
 				<label class="flex items-center">
 					Text Color
 					<input type="color" bind:value={userStyles.colors.button.back.text} class="ml-2" />
+				</label>
+			</div>
+
+			<div class="flex flex-col gap-2">
+				<h4 class="font-medium">Reset Button</h4>
+				<label class="flex items-center">
+					Background
+					<input type="color" bind:value={userStyles.colors.button.reset.bg} class="ml-2" />
+				</label>
+				<label class="flex items-center">
+					Text Color
+					<input type="color" bind:value={userStyles.colors.button.reset.text} class="ml-2" />
 				</label>
 			</div>
 		</div>

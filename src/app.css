@@ -19,7 +19,7 @@ button {
 }
 
 button:focus {
-    outline-color: #3b82f6;
+	outline-color: #3b82f6;
 }
 
 .cardTitle {
@@ -42,4 +42,8 @@ button:focus {
 
 #surveyTitle {
 	font-size: 48px;
+}
+
+input[type="range"] {
+  width: 300px;
 }
