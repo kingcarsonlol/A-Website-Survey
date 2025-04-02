@@ -1,6 +1,6 @@
 <script>
 	import { goto } from "$app/navigation";
-	import { Colors, Size, Typography, Rating } from "$lib/components/cards";
+	import { Colors, Size, Rating } from "$lib/components/cards";
 
 	let currentSlide = $state(1);
 
@@ -11,6 +11,14 @@
 			goto("/statistics");
 		}
 	});
+
+	function submitData() {
+		// Upload all data to the database
+		
+
+		// Redirect to the statistics page
+		goto("/statistics");
+	}
 </script>
 
 <div class="flex h-[100vh] flex-col items-center justify-center">
@@ -42,7 +50,7 @@
 		{#if currentSlide != 3}
 			<button class="nextBtn navButton" onclick={() => currentSlide++}> Next </button>
 		{:else}
-			<button class="nextBtn navButton" onclick={() => currentSlide++}> SUBMIT </button>
+			<button class="nextBtn navButton" onclick={submitData}> SUBMIT </button>
 		{/if}
 	</footer>
 </div>
