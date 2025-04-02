@@ -8,11 +8,83 @@
 		document.getElementById("card").style.borderWidth = `${userStyles.sizes.card.border.width}px`;
 		document.getElementById("card").style.borderRadius =
 			`${userStyles.sizes.card.border.roundness}%`;
+
+		// Text Sizing Effects
+		document.getElementById("surveyTitle").style.fontSize =
+			`${userStyles.sizes.text.surveyTitle}px`;
+		for (const cardHeading of document.getElementsByClassName("cardTitle")) {
+			cardHeading.style.fontSize = `${userStyles.sizes.text.cardTitles}px`;
+		}
+		for (const cardHeading of document.getElementsByClassName("cardSubHeading")) {
+			cardHeading.style.fontSize = `${userStyles.sizes.text.subheadings}px`;
+		}
+		document.body.style.fontSize = `${userStyles.sizes.text.content}px`;
+
+		// Button Sizing Effects
+		for (const navbtn of document.getElementsByClassName("navButton")) {
+			navbtn.style.fontSize = `${userStyles.sizes.button.text}px`;
+			navbtn.style.padding = `${userStyles.sizes.button.padding / 2}px ${userStyles.sizes.button.padding}px`;
+		}
+		document.getElementById("buttonSpace").style.width = `${userStyles.sizes.button.gap}px`;
+
+		// Form Sizing Effects
+		for (const slider of document.querySelectorAll('input[type="range"]')) {
+			slider.style.width = `${userStyles.sizes.form.rangeSlider.width}px`;
+			slider.style.height = `${userStyles.sizes.form.rangeSlider.height}px`;
+		}
 	});
+
+	function resetSizes() {
+		userStyles.sizes = {
+			card: {
+				width: 1200,
+				height: 600,
+				border: {
+					width: 2,
+					roundness: 0
+				}
+			},
+			text: {
+				surveyTitle: 48,
+				cardTitles: 30,
+				subheadings: 18,
+				content: 16
+			},
+			button: {
+				gap: 16,
+				padding: 8,
+				text: 20
+			},
+			form: {
+				rangeSlider: {
+					height: 15,
+					width: 300
+				}
+			}
+		};
+	}
 </script>
 
 <div class="w-full">
-	<h2 class="cardTitle">Sizes</h2>
+	<h2 class="cardTitle">
+		<button class="resetBtn" onclick={resetSizes}>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width={userStyles.sizes.text.cardTitles * 0.7}
+				height={userStyles.sizes.text.cardTitles * 0.7}
+				viewBox="0 0 21 21"
+				><!-- Icon from System UIcons by Corey Ginnivan - https://github.com/CoreyGinnivan/system-uicons/blob/master/LICENSE --><g
+					fill="none"
+					fill-rule="evenodd"
+					stroke="currentColor"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					><path d="M3.578 6.487A8 8 0 1 1 2.5 10.5" /><path d="M7.5 6.5h-4v-4" /></g
+				></svg
+			>
+		</button>
+		Sizes
+	</h2>
 	<div class="cardSubSection grid grid-cols-1 gap-x-20 gap-y-5 md:grid-cols-2">
 		<div>
 			<!-- I don't know why this is the only thing that works [hours waster: 2] -->
@@ -165,40 +237,6 @@
 		<div>
 			<h3 class="cardSubHeading" style="margin-top: 1px;">Button Sizing</h3>
 			<div class="grid grid-cols-[30%_70%] gap-y-3 md:grid-cols-[20%_80%]">
-				<label for="buttonWidth" class="mr-5">Btn Width</label>
-				<div>
-					<input
-						type="number"
-						name="buttonWidth"
-						bind:value={userStyles.sizes.button.width}
-						class="h-[30px] w-[70px]"
-					/>
-					<input
-						type="range"
-						name="buttonWidth"
-						bind:value={userStyles.sizes.button.width}
-						min="1"
-						max="200"
-					/>
-				</div>
-
-				<label for="buttonHeight" class="mr-5">Btn Height</label>
-				<div>
-					<input
-						type="number"
-						name="buttonHeight"
-						bind:value={userStyles.sizes.button.height}
-						class="h-[30px] w-[70px]"
-					/>
-					<input
-						type="range"
-						name="buttonHeight"
-						bind:value={userStyles.sizes.button.height}
-						min="1"
-						max="200"
-					/>
-				</div>
-
 				<label for="buttonText" class="mr-5">Btn Text</label>
 				<div>
 					<input
@@ -213,6 +251,40 @@
 						bind:value={userStyles.sizes.button.text}
 						min="1"
 						max="99"
+					/>
+				</div>
+
+				<label for="buttonGap" class="mr-5">Gap</label>
+				<div>
+					<input
+						type="number"
+						name="buttonGap"
+						bind:value={userStyles.sizes.button.gap}
+						class="h-[30px] w-[70px]"
+					/>
+					<input
+						type="range"
+						name="buttonGap"
+						bind:value={userStyles.sizes.button.gap}
+						min="0"
+						max="999"
+					/>
+				</div>
+
+				<label for="buttonPadding" class="mr-5">Btn Padding</label>
+				<div>
+					<input
+						type="number"
+						name="buttonPadding"
+						bind:value={userStyles.sizes.button.padding}
+						class="h-[30px] w-[70px]"
+					/>
+					<input
+						type="range"
+						name="buttonPadding"
+						bind:value={userStyles.sizes.button.padding}
+						min="1"
+						max="100"
 					/>
 				</div>
 			</div>
@@ -234,8 +306,8 @@
 						name="rangeBarWidth"
 						value={userStyles.sizes.form.rangeSlider.width}
 						onchange={(e) => (userStyles.sizes.form.rangeSlider.width = e.target.value)}
-						min="1"
-						max="99"
+						min="50"
+						max="500"
 					/>
 				</div>
 
@@ -252,7 +324,7 @@
 						name="rangeBarHeight"
 						bind:value={userStyles.sizes.form.rangeSlider.height}
 						min="1"
-						max="99"
+						max="15"
 					/>
 				</div>
 			</div>

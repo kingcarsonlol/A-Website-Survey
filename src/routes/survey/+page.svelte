@@ -33,8 +33,8 @@
 		</div>
 	</section>
 	<footer class="flex h-[15vh] w-full items-center justify-center">
-		<button class="backBtn" onclick={() => currentSlide--}> Back </button>
+		<button class="backBtn navButton" onclick={() => currentSlide--}> Back </button>
 		<div id="buttonSpace" class="w-[1rem]"></div>
-		<button class="nextBtn" onclick={() => currentSlide++}> Next </button>
+		<button class="nextBtn navButton" onclick={() => currentSlide++}> Next </button>
 	</footer>
 </div>

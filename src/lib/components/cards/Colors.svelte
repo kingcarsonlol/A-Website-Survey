@@ -45,6 +45,9 @@
 			resetBtn.style.backgroundColor = userStyles.colors.button.reset.bg;
 			resetBtn.style.color = userStyles.colors.button.reset.text;
 		}
+
+		// Form Element Sizing SubSection
+		
 	});
 
 	function resetColors() {
@@ -101,7 +104,7 @@
 <div class="w-full">
 	<h2 class="cardTitle">
 		<button class="resetBtn" onclick={resetColors}>
-			<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 21 21"
+			<svg xmlns="http://www.w3.org/2000/svg" width={userStyles.sizes.text.cardTitles * 0.7} height={userStyles.sizes.text.cardTitles * 0.7} viewBox="0 0 21 21"
 				><!-- Icon from System UIcons by Corey Ginnivan - https://github.com/CoreyGinnivan/system-uicons/blob/master/LICENSE --><g
 					fill="none"
 					fill-rule="evenodd"

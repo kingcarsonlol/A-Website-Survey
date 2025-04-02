@@ -63,17 +63,17 @@ export const userStyles = $state({
 			surveyTitle: 48,
 			cardTitles: 30,
 			subheadings: 18,
-			content: 12
+			content: 16
 		},
 		button: {
-			width: 100,
-			height: 30,
-			text: 12
+			gap: 16,
+			padding: 8,
+			text: 20
 		},
 		form: {
 			rangeSlider: {
 				height: 15,
-				width: 99
+				width: 300
 			}
 		}
 	},
