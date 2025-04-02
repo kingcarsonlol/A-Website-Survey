@@ -25,8 +25,6 @@
 				{:else if currentSlide == 2}
 					<Size />
 				{:else if currentSlide == 3}
-					<Typography />
-				{:else if currentSlide == 4}
 					<Rating />
 				{/if}
 			</div>
