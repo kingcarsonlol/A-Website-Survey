@@ -4,7 +4,7 @@ import { responses } from "./responses";
 export const colors = pgTable("colors", {
 	id: serial("id").primaryKey(),
 	responseId: integer("response_id").references(() => responses.id), // Foreign key
-	bgType: text("bg_type"), // e.g., "solid" or "gradient"
+	bgType: text("bg_type").default("solid").notNull(), // e.g., "solid" or "gradient"
 	solidColor: text("solid_color"), // e.g., "#808080"
 	gradientStartColor: text("gradient_start_color"), // e.g., "#ffffff"
 	gradientEndColor: text("gradient_end_color"), // e.g., "#111111"
