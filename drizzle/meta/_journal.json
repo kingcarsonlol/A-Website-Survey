@@ -15,6 +15,20 @@
       "when": 1743675244957,
       "tag": "0001_elite_songbird",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1743871136081,
+      "tag": "0002_happy_callisto",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1743871514899,
+      "tag": "0003_good_sunspot",
+      "breakpoints": true
     }
   ]
 }

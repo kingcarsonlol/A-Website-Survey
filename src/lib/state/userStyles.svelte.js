@@ -26,7 +26,7 @@ export const userStyles = $state({
 			},
 			footer: {
 				ownBg: false,
-				bg: "#ffffff"
+				bg: "#ffffff",
 			}
 		},
 		card: {
@@ -78,5 +78,5 @@ export const userStyles = $state({
 		}
 	},
 
-	rating: 3,
+	rating: 3
 });
