@@ -4,7 +4,7 @@
 	let chartData = $state({});
 
 	onMount(async () => {
-        // Fetch data when the component is initialized
+		// Fetch data when the component is initialized
 		try {
 			const response = await fetch("/api/stats");
 			const data = await response.json();

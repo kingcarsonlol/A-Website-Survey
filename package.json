@@ -39,7 +39,9 @@
 		"vite": "^6.0.0"
 	},
 	"dependencies": {
+		"chart.js": "^4.4.8",
 		"drizzle-orm": "^0.40.0",
+		"plotly.js-dist-min": "^3.0.1",
 		"postgres": "^3.4.5"
 	},
 	"pnpm": {
