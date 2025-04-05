@@ -29,6 +29,13 @@
       "when": 1743871514899,
       "tag": "0003_good_sunspot",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1743872662761,
+      "tag": "0004_flawless_photon",
+      "breakpoints": true
     }
   ]
 }
