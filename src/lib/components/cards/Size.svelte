@@ -32,6 +32,11 @@
 			slider.style.width = `${userStyles.sizes.form.rangeSlider.width}px`;
 			slider.style.height = `${userStyles.sizes.form.rangeSlider.height}px`;
 		}
+
+		for (const resetBtn of document.getElementsByClassName("resetBtn")) {
+			resetBtn.style.backgroundColor = userStyles.colors.button.reset.bg;
+			resetBtn.style.color = userStyles.colors.button.reset.text;
+		}
 	});
 
 	function resetSizes() {

@@ -45,8 +45,6 @@
 			resetBtn.style.backgroundColor = userStyles.colors.button.reset.bg;
 			resetBtn.style.color = userStyles.colors.button.reset.text;
 		}
-
-		// Form Element Sizing SubSection
 	});
 
 	function resetColors() {
