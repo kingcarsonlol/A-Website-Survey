@@ -5,36 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1743673923477,
-      "tag": "0000_striped_madame_web",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1743675244957,
-      "tag": "0001_elite_songbird",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1743871136081,
-      "tag": "0002_happy_callisto",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "7",
-      "when": 1743871514899,
-      "tag": "0003_good_sunspot",
-      "breakpoints": true
-    },
-    {
-      "idx": 4,
-      "version": "7",
-      "when": 1743872662761,
-      "tag": "0004_flawless_photon",
+      "when": 1743949324331,
+      "tag": "0000_typical_ultimatum",
       "breakpoints": true
     }
   ]

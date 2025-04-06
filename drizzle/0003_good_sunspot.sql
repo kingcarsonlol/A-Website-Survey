@@ -1,1 +1,0 @@
-ALTER TABLE "colors" DROP COLUMN "footer_text";

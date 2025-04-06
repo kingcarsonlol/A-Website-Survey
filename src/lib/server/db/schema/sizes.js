@@ -1,9 +1,9 @@
-import { pgTable, serial, integer } from "drizzle-orm/pg-core";
+import { pgTable, uuid, integer } from "drizzle-orm/pg-core";
 import { responses } from "./responses";
 
 export const sizes = pgTable("sizes", {
-	id: serial("id").primaryKey(),
-	responseId: integer("response_id").references(() => responses.id, {
+	id: uuid("id").primaryKey().defaultRandom(),
+	responseId: uuid("response_id").references(() => responses.id, {
 		onDelete: "cascade"
 	}), // Foreign key
 

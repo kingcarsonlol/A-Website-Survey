@@ -1,5 +1,5 @@
 {
-  "id": "927849ff-6e8b-4dff-a4e1-5897cf100525",
+  "id": "4fc47c96-787b-4c76-bf54-f4ebd18f2182",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -10,13 +10,14 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "serial",
+          "type": "uuid",
           "primaryKey": true,
-          "notNull": true
+          "notNull": true,
+          "default": "gen_random_uuid()"
         },
         "response_id": {
           "name": "response_id",
-          "type": "integer",
+          "type": "uuid",
           "primaryKey": false,
           "notNull": false
         },
@@ -24,7 +25,8 @@
           "name": "bg_type",
           "type": "text",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true,
+          "default": "'solid'"
         },
         "solid_color": {
           "name": "solid_color",
@@ -147,7 +149,7 @@
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
+          "onDelete": "cascade",
           "onUpdate": "no action"
         }
       },
@@ -163,9 +165,10 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "serial",
+          "type": "uuid",
           "primaryKey": true,
-          "notNull": true
+          "notNull": true,
+          "default": "gen_random_uuid()"
         },
         "rating": {
           "name": "rating",
@@ -195,13 +198,14 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "serial",
+          "type": "uuid",
           "primaryKey": true,
-          "notNull": true
+          "notNull": true,
+          "default": "gen_random_uuid()"
         },
         "response_id": {
           "name": "response_id",
-          "type": "integer",
+          "type": "uuid",
           "primaryKey": false,
           "notNull": false
         },
@@ -229,26 +233,26 @@
           "primaryKey": false,
           "notNull": false
         },
-        "text_survey_title_size": {
-          "name": "text_survey_title_size",
+        "text_survey_title": {
+          "name": "text_survey_title",
           "type": "integer",
           "primaryKey": false,
           "notNull": false
         },
-        "text_card_titles_size": {
-          "name": "text_card_titles_size",
+        "text_card_titles": {
+          "name": "text_card_titles",
           "type": "integer",
           "primaryKey": false,
           "notNull": false
         },
-        "text_subheadings_size": {
-          "name": "text_subheadings_size",
+        "text_subheadings": {
+          "name": "text_subheadings",
           "type": "integer",
           "primaryKey": false,
           "notNull": false
         },
-        "text_content_size": {
-          "name": "text_content_size",
+        "text_content": {
+          "name": "text_content",
           "type": "integer",
           "primaryKey": false,
           "notNull": false
@@ -265,8 +269,8 @@
           "primaryKey": false,
           "notNull": false
         },
-        "button_text_size": {
-          "name": "button_text_size",
+        "button_text": {
+          "name": "button_text",
           "type": "integer",
           "primaryKey": false,
           "notNull": false
@@ -296,12 +300,67 @@
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
+          "onDelete": "cascade",
           "onUpdate": "no action"
         }
       },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.statistics": {
+      "name": "statistics",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "parameter_name": {
+          "name": "parameter_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "total_count": {
+          "name": "total_count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "default": 0
+        },
+        "sum": {
+          "name": "sum",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": false,
+          "default": 0
+        },
+        "values": {
+          "name": "values",
+          "type": "json",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'[]'::json"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "statistics_parameter_name_unique": {
+          "name": "statistics_parameter_name_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "parameter_name"
+          ]
+        }
+      },
       "policies": {},
       "checkConstraints": {},
       "isRLSEnabled": false
