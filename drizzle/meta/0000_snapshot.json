@@ -1,5 +1,5 @@
 {
-  "id": "4fc47c96-787b-4c76-bf54-f4ebd18f2182",
+  "id": "95afb0a6-8c8e-4e0a-a631-ea208a38c30a",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -30,19 +30,19 @@
         },
         "solid_color": {
           "name": "solid_color",
-          "type": "text",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": false
         },
         "gradient_start_color": {
           "name": "gradient_start_color",
-          "type": "text",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": false
         },
         "gradient_end_color": {
           "name": "gradient_end_color",
-          "type": "text",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": false
         },
@@ -60,13 +60,13 @@
         },
         "header_bg": {
           "name": "header_bg",
-          "type": "text",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": false
         },
         "header_text": {
           "name": "header_text",
-          "type": "text",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": false
         },
@@ -78,61 +78,61 @@
         },
         "footer_bg": {
           "name": "footer_bg",
-          "type": "text",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": false
         },
         "card_bg": {
           "name": "card_bg",
-          "type": "text",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": false
         },
         "card_text": {
           "name": "card_text",
-          "type": "text",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": false
         },
         "card_border": {
           "name": "card_border",
-          "type": "text",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": false
         },
         "button_next_bg": {
           "name": "button_next_bg",
-          "type": "text",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": false
         },
         "button_next_text": {
           "name": "button_next_text",
-          "type": "text",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": false
         },
         "button_back_bg": {
           "name": "button_back_bg",
-          "type": "text",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": false
         },
         "button_back_text": {
           "name": "button_back_text",
-          "type": "text",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": false
         },
         "button_reset_bg": {
           "name": "button_reset_bg",
-          "type": "text",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": false
         },
         "button_reset_text": {
           "name": "button_reset_text",
-          "type": "text",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": false
         }

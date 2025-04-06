@@ -13,15 +13,51 @@
 		}
 	});
 
+	function hexToRgb(hex) {
+		// Remove the leading '#' if present
+		hex = hex.replace(/^#/, "");
+
+		// Parse the hex string into RGB components
+		const bigint = parseInt(hex, 16);
+		const r = (bigint >> 16) & 255;
+		const g = (bigint >> 8) & 255;
+		const b = bigint & 255;
+
+		return { r, g, b };
+	}
+
+	function convertColorsToRgb(obj) {
+		// Create a new object to avoid mutating the original
+		const newObj = Array.isArray(obj) ? [] : {};
+
+		for (const key in obj) {
+			if (typeof obj[key] === "string" && obj[key].startsWith("#")) {
+				// If the value is a hex color string, convert it to { r, g, b }
+				newObj[key] = hexToRgb(obj[key]);
+			} else if (typeof obj[key] === "object" && obj[key] !== null) {
+				// If the value is an object or array, recursively process it
+				newObj[key] = convertColorsToRgb(obj[key]);
+			} else {
+				// Otherwise, copy the value as is
+				newObj[key] = obj[key];
+			}
+		}
+
+		return newObj;
+	}
+
 	async function submitData() {
 		if (userStyles.colors.bg.type === "") {
 			userStyles.colors.bg.type = "solid";
 		}
 
+		// Convert all color strings to { r, g, b } objects
+		const processedStyles = convertColorsToRgb(userStyles);
+
 		// Upload all data to the database
 		const response = await fetch("/api/save", {
 			method: "POST",
-			body: JSON.stringify(userStyles)
+			body: JSON.stringify(processedStyles)
 		});
 
 		// Reset styles
