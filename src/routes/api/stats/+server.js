@@ -4,20 +4,23 @@ import * as schema from "$lib/server/db/schema"; // Import your schema
 
 export async function GET() {
 	try {
-
 		const stats = await db.select().from(schema.statistics);
+
+		// Transform the array into an object with parameterName as keys
+		const transformedStats = stats.reduce((acc, stat) => {
+			// Use the parameterName as the key
+			const { parameterName, ...rest } = stat;
+			acc[parameterName] = rest;
+			return acc;
+		}, {});
 
 		return json({
 			status: "success",
-			data: stats
+			data: transformedStats
 		});
 	} catch (error) {
-		// Handle errors gracefully
 		console.error("Error fetching data:", error);
 
-		/**
-		 * @type {Object} errorResponse - The error response object.
-		 */
 		return json(
 			{
 				status: "error",
