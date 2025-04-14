@@ -6,12 +6,7 @@
 	const { chartData } = $props();
 </script>
 
-<!-- Larger Screens -->
-<div class="hidden md:block">
-	<h3 class="mb-3 text-center text-3xl">Marginalia Styling</h3>
-</div>
-
-<!-- Smaller Screens -->
-<div class="md:hidden">
+<h3 class="mb-3 text-center text-3xl">Marginalia Styling</h3>
+<div class="grid grid-cols-1 md:grid-cols-2">
 
 </div>
