@@ -1,6 +1,10 @@
 <script>
 	import { onMount } from "svelte";
-	import ColorStats from "$lib/components/graphs/ColorStats.svelte";
+	import BgStats from "$lib/components/graphs/BgStats.svelte";
+	import CardsStats from "$lib/components/graphs/CardsStats.svelte";
+	import MarginaliaStats from "$lib/components/graphs/MarginaliaStats.svelte";
+	import ButtonsStats from "$lib/components/graphs/ButtonsStats.svelte";
+	import RatingStats from "$lib/components/graphs/RatingStats.svelte";
 
 	let chartData = $state({});
 
@@ -17,22 +21,18 @@
 </script>
 
 <div class="w-full flex flex-col justify-center items-center">
-	<h1 class="text-5xl font-bold">STATISTICS</h1>
+	<h1 class="text-5xl font-bold my-10">STATISTICS</h1>
 	{#if chartData}
 		{#if chartData.status == "success"}
-			<!-- Colors -->
-			<div class="w-[50%]">
-				<h1 class="text-3xl">Colors</h1>
-				<ColorStats chartData={chartData.data} />
+			<div class="w-[70%]">
+				<BgStats chartData={chartData.data} />
 			</div>
 
-			<!-- Sizing -->
-			<div>
+			<div class="w-[70%]">
 
 			</div>
 
-			<!-- Rating -->
-			 <div>
+			 <div class="w-[70%]">
 
 			 </div>
 			<pre>{JSON.stringify(chartData, null, 2)}</pre>

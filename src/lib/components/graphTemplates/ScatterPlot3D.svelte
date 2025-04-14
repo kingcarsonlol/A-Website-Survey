@@ -1,10 +1,9 @@
 <script>
-	import { onMount, onDestroy, tick } from "svelte";
+	import { onMount, onDestroy } from "svelte";
 	import { browser } from "$app/environment";
 
 	// Props
-	let { data, title, height, pointSize, zoom } = $props();
-	let backgroundColor = "#f8f9fa";
+	let { data, title, pointSize, zoom } = $props();
 
 	// Additional customization
 	let cameraPosition = { x: zoom, y: zoom, z: zoom };
@@ -50,7 +49,7 @@
 			];
 
 			let tickvalues = [];
-			if (zoom > 1.5) {
+			if (zoom > 1.75) {
 				tickvalues = [0, 100, 200];
 			} else {
 				tickvalues = [0, 50, 100, 150, 200, 250];
@@ -83,16 +82,16 @@
 						range: [0, 255],
 						tickvals: tickvalues
 					},
-					camera: { eye: cameraPosition }
+					camera: { eye: cameraPosition },
+					aspectmode: "cube",
+					aspectratio: { x: 1, y: 1, z: 1 }
 				},
 				margin: { l: 0, r: 0, b: 0, t: 0 },
-				paper_bgcolor: backgroundColor,
-				plot_bgcolor: backgroundColor
 			};
 
 			const config = {
 				displayModeBar: false, // Hides all the control buttons
-				scrollZoom: true // Still allows scrolling to zoom if needed
+				scrollZoom: false // disallows scrolling to zoom
 			};
 
 			if (chart) {
@@ -130,7 +129,7 @@
 </script>
 
 <div class="scatter-container">
-	<div bind:this={plotlyDiv} style="height: {height}; width: 100%;"></div>
+	<div bind:this={plotlyDiv}></div>
 	{#if !plotlyLoaded}
 		<div class="loading">Loading 3D scatter plot...</div>
 	{/if}
@@ -140,13 +139,5 @@
 	.scatter-container {
 		position: relative;
 		width: 100%;
-	}
-
-	.loading {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		color: #666;
 	}
 </style>
