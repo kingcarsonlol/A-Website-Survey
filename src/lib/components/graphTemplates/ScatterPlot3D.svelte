@@ -91,7 +91,7 @@
 
 			const config = {
 				displayModeBar: false, // Hides all the control buttons
-				scrollZoom: false // disallows scrolling to zoom
+				scrollZoom: true // allows scrolling to zoom
 			};
 
 			if (chart) {

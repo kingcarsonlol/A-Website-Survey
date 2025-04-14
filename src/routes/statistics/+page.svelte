@@ -20,8 +20,8 @@
 	});
 </script>
 
-<div class="w-full flex flex-col justify-center items-center">
-	<h1 class="text-5xl font-bold my-10">STATISTICS</h1>
+<div class="flex w-full flex-col items-center justify-center gap-y-10">
+	<h1 class="mt-10 text-5xl font-bold">STATISTICS</h1>
 	{#if chartData}
 		{#if chartData.status == "success"}
 			<div class="w-[70%]">
@@ -29,12 +29,20 @@
 			</div>
 
 			<div class="w-[70%]">
-
+				<CardsStats chartData={chartData.data} />
 			</div>
 
-			 <div class="w-[70%]">
+			<div class="w-[70%]">
+				<MarginaliaStats chartData={chartData.data} />
+			</div>
 
-			 </div>
+			<div class="w-[70%]">
+				<ButtonsStats chartData={chartData.data} />
+			</div>
+
+			<div class="w-[70%]">
+				<RatingStats chartData={chartData.data} />
+			</div>
 			<pre>{JSON.stringify(chartData, null, 2)}</pre>
 		{:else}
 			<p>An error has occurred in fetching statistics data</p>

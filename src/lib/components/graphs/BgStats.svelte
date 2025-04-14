@@ -8,26 +8,26 @@
 
 <!-- Large screens -->
 <div class="hidden md:block">
-    <h3 class="text-center text-2xl">Background Colors</h3>
+	<h3 class="mb-3 text-center text-3xl">Background Color</h3>
 	<div class="grid grid-cols-2">
 		<div class="border border-gray-300">
 			<PieChart
 				title="# of Solid & Gradient Backgrounds"
-                pieLabels={["Solid Backgrounds", "Gradient Backgrounds"]}
+				pieLabels={["Solid Backgrounds", "Gradient Backgrounds"]}
 				data={{
 					solidCount: chartData.bgTypeSolid.totalCount,
 					gradientCount: chartData.bgTypeGradient.totalCount
 				}}
 			/>
-			<div class="text-center mt-5">
+			<div class="mt-5 text-center">
 				<h4 class="font-bold">Gradient Angle (°)</h4>
 				<p>
 					Average : {mean(chartData.bgGradientAngle.values).toFixed(2)}
 				</p>
-                <p>
+				<p>
 					Median : {median(chartData.bgGradientAngle.values)}
 				</p>
-                <p>
+				<p>
 					Mode : {mode(chartData.bgGradientAngle.values)}
 				</p>
 			</div>
@@ -62,7 +62,7 @@
 <!-- Small screens -->
 <div class="md:hidden">
 	<div class="grid grid-cols-1">
-<div class="border border-gray-300">
+		<div class="border border-gray-300">
 			<PieChart
 				title="# of Solid & Gradient Backgrounds"
 				data={{
@@ -70,15 +70,15 @@
 					gradientCount: chartData.bgTypeGradient.totalCount
 				}}
 			/>
-			<div class="text-center mt-5">
+			<div class="mt-5 text-center">
 				<h2 class="font-bold">Gradient Angle (°)</h2>
 				<p>
 					Average : {mean(chartData.bgGradientAngle.values).toFixed(2)}
 				</p>
-                <p>
+				<p>
 					Median : {median(chartData.bgGradientAngle.values)}
 				</p>
-                <p>
+				<p>
 					Mode : {mode(chartData.bgGradientAngle.values)}
 				</p>
 			</div>
