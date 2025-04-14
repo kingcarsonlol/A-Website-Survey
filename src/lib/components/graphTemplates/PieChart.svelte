@@ -55,7 +55,12 @@
 			plugins: {
 				title: {
 					display: !!title,
-					text: title
+					text: title,
+					font: {
+						size: "20rem", 
+						weight: "normal",
+						color: "black",
+					}
 				},
 				legend: {
 					display: true
