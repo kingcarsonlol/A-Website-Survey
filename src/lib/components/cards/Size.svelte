@@ -123,7 +123,7 @@
 					<input
 						type="range"
 						name="cardWidth"
-						onchange={(e) => (userStyles.sizes.card.width = e.target.value)}
+						onchange={(e) => (userStyles.sizes.card.width = Number(e.target.value))}
 						min="500"
 						max="1700"
 					/>
@@ -310,7 +310,7 @@
 						type="range"
 						name="rangeBarWidth"
 						value={userStyles.sizes.form.rangeSlider.width}
-						onchange={(e) => (userStyles.sizes.form.rangeSlider.width = e.target.value)}
+						onchange={(e) => (userStyles.sizes.form.rangeSlider.width = Number(e.target.value))}
 						min="50"
 						max="500"
 					/>

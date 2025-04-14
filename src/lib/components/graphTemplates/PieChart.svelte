@@ -83,13 +83,6 @@
 			options: mergedOptions
 		});
 	}
-
-	// React to data changes
-	$effect(() => {
-		if (browser && chartCanvas && Object.keys(data).length) {
-			createOrUpdateChart();
-		}
-	});
 	onMount(() => {
 		if (browser) {
 			createOrUpdateChart();

@@ -1,6 +1,7 @@
 <script>
 	import ScatterPlot3D from "../graphTemplates/ScatterPlot3D.svelte";
 	import PieChart from "../graphTemplates/PieChart.svelte";
+	import Histogram from "../graphTemplates/Histogram.svelte";
 	import { mean, median, mode } from "mathjs";
 
 	const { chartData } = $props();
@@ -9,16 +10,48 @@
 <!-- Larger Screens -->
 <div class="hidden md:block">
 	<h3 class="mb-3 text-center text-3xl">Card Styling</h3>
-    <div class="grid grid-cols-3">
-        <div>
-            
-        </div>
-    </div>
-</div>
-
-<!-- Smaller Screens -->
-<div class="md:hidden">
-    <div class="grid grid-cols-1">
-
-    </div>
+	<div class="grid grid-cols-3">
+		<div class="border border-gray-300">
+			<ScatterPlot3D
+				title="Card Background Color"
+				data={chartData.cardBg.values}
+				pointSize="10"
+				zoom="2.25"
+			/>
+		</div>
+		<div class="border border-gray-300">
+			<ScatterPlot3D
+				title="Card Text Content Color"
+				data={chartData.cardTextColor.values}
+				pointSize="10"
+				zoom="2.25"
+			/>
+		</div>
+		<div class="border border-gray-300">
+			<ScatterPlot3D
+				title="Card Border Color"
+				data={chartData.cardBorderColor.values}
+				pointSize="10"
+				zoom="2.25"
+			/>
+		</div>
+		<div class="border border-gray-300">
+			<div class="mr-3">
+				<Histogram
+					title="Card Width Distribution"
+					data={chartData.cardWidth.values}
+					xLabel="Font Size"
+					yLabel="Frequency"
+					bins="10"
+				/>
+				<Histogram
+					title="Card Height Distribution"
+					data={chartData.cardHeight.values}
+					xLabel="Font Size"
+					yLabel="Frequency"
+					bins="10"
+				/>
+			</div>
+		</div>
+	</div>
 </div>

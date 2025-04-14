@@ -9,6 +9,9 @@
 	let chartData = $state({});
 
 	onMount(async () => {
+		// Add a delay before fetching data (1.5 seconds) this gives the database some time to actually save the data
+    	await new Promise(resolve => setTimeout(resolve, 1500));
+
 		// Fetch data when the component is initialized
 		try {
 			const response = await fetch("/api/stats");
@@ -45,7 +48,7 @@
 			</div>
 			<pre>{JSON.stringify(chartData, null, 2)}</pre>
 		{:else}
-			<p>An error has occurred in fetching statistics data</p>
+			<p>Loading...</p>
 		{/if}
 	{:else}
 		<p>Loading...</p>

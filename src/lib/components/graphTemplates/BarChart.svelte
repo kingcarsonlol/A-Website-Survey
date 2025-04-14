@@ -110,13 +110,6 @@
 		});
 	}
 
-	// React to data changes
-	$effect(() => {
-		if (browser && chartCanvas && data.length) {
-			createOrUpdateChart();
-		}
-	});
-
 	onMount(() => {
 		if (browser) {
 			createOrUpdateChart();
