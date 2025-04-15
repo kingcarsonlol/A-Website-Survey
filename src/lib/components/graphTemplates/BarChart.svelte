@@ -4,20 +4,14 @@
 	import Chart from "chart.js/auto";
 
 	// Props
-	let data = []; // Array of values
-	let labels = []; // Labels for each bar
-	let title = "Bar Chart";
-	let xAxisLabel = "";
-	let yAxisLabel = "";
-	let backgroundColor = []; // Colors for bars
-	let borderColor = []; // Border colors
-	let beginAtZero = true;
-	let stepSize;
-	let height = "300px";
-	let width = "100%";
-	let datasetLabel = ""; // Label for the dataset
-	let showLegend = false;
-	let customOptions = {}; // Additional Chart.js options
+	let { data, title, xLabel, yLabel, labels } = $props();
+	let backgroundColor = $state([]); // Colors for bars
+	let borderColor = $state([]); // Border colors
+	let beginAtZero = $state(true);
+	let stepSize = $state(undefined);
+	let datasetLabel = $state(""); // Label for the dataset
+	let showLegend = $state(false);
+	let customOptions = $state({}); // Additional Chart.js options
 
 	// State
 	let chartCanvas = $state(null);
@@ -25,10 +19,10 @@
 
 	// Default colors if none provided
 	const defaultColors = [
+		"rgba(75, 192, 192, 0.7)",
 		"rgba(255, 99, 132, 0.7)",
 		"rgba(255, 159, 64, 0.7)",
 		"rgba(255, 205, 86, 0.7)",
-		"rgba(75, 192, 192, 0.7)",
 		"rgba(54, 162, 235, 0.7)",
 		"rgba(153, 102, 255, 0.7)",
 		"rgba(201, 203, 207, 0.7)"
@@ -49,11 +43,11 @@
 		// Use provided colors or defaults
 		const bgColors = backgroundColor.length
 			? backgroundColor
-			: data.map((_, i) => defaultColors[i % defaultColors.length]);
+			: labels.map((_, i) => defaultColors[i % defaultColors.length]);
 
 		const borderColors = borderColor.length
 			? borderColor
-			: data.map((_, i) => defaultBorders[i % defaultBorders.length]);
+			: labels.map((_, i) => defaultBorders[i % defaultBorders.length]);
 
 		// Default chart options
 		const defaultOptions = {
@@ -66,22 +60,28 @@
 				},
 				legend: {
 					display: showLegend
+				},
+				tooltip: {
+					callbacks: {
+						label: (context) => `${datasetLabel || 'Value'}: ${context.parsed.y}`
+					}
 				}
 			},
 			scales: {
 				x: {
 					title: {
-						display: !!xAxisLabel,
-						text: xAxisLabel
+						display: !!xLabel,
+						text: xLabel
 					}
 				},
 				y: {
 					beginAtZero,
 					title: {
-						display: !!yAxisLabel,
-						text: yAxisLabel
+						display: !!yLabel,
+						text: yLabel
 					},
 					ticks: {
+						precision: 0, // Show integer values only
 						stepSize: stepSize
 					}
 				}
@@ -123,7 +123,7 @@
 	});
 </script>
 
-<div class="chart-container" style="height: {height}; width: {width};">
+<div class="chart-container">
 	<canvas bind:this={chartCanvas}></canvas>
 	{#if !chartCanvas}
 		<div class="loading">Loading chart...</div>
@@ -133,6 +133,7 @@
 <style>
 	.chart-container {
 		position: relative;
+		min-height: 300px;
 	}
 
 	.loading {

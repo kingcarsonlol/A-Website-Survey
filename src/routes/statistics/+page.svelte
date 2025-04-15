@@ -23,7 +23,7 @@
 	});
 </script>
 
-<div class="flex w-full flex-col items-center justify-center gap-y-10">
+<div class="flex w-full flex-col items-center justify-center gap-y-10 mb-15">
 	<h1 class="mt-10 text-5xl font-bold">STATISTICS</h1>
 	{#if chartData}
 		{#if chartData.status == "success"}
@@ -46,7 +46,6 @@
 			<div class="w-[70%]">
 				<RatingStats chartData={chartData.data} />
 			</div>
-			<pre>{JSON.stringify(chartData, null, 2)}</pre>
 		{:else}
 			<p>Loading...</p>
 		{/if}
