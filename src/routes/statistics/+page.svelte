@@ -5,12 +5,13 @@
 	import MarginaliaStats from "$lib/components/graphs/MarginaliaStats.svelte";
 	import ButtonsStats from "$lib/components/graphs/ButtonsStats.svelte";
 	import RatingStats from "$lib/components/graphs/RatingStats.svelte";
+	import { goto } from "$app/navigation";
 
 	let chartData = $state({});
 
 	onMount(async () => {
 		// Add a delay before fetching data (1.5 seconds) this gives the database some time to actually save the data
-    	await new Promise(resolve => setTimeout(resolve, 1500));
+		await new Promise((resolve) => setTimeout(resolve, 1500));
 
 		// Fetch data when the component is initialized
 		try {
@@ -23,7 +24,7 @@
 	});
 </script>
 
-<div class="flex w-full flex-col items-center justify-center gap-y-10 mb-15">
+<div class="mb-15 flex w-full flex-col items-center justify-center gap-y-10">
 	<h1 class="mt-10 text-5xl font-bold">STATISTICS</h1>
 	{#if chartData}
 		{#if chartData.status == "success"}
@@ -52,4 +53,7 @@
 	{:else}
 		<p>Loading...</p>
 	{/if}
+	<div>
+		<button onclick={() => goto("/")}>Retake the Survey!</button>
+	</div>
 </div>
