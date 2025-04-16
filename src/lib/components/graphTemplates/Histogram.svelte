@@ -73,9 +73,6 @@
 			return `${Math.round(edge)} - ${Math.round(binEdges[i + 1])}`;
 		});
 
-		console.log("Bin edges:", binEdges);
-		console.log("Bin counts:", binCounts);
-
 		return { binLabels, binCounts };
 	}
 
