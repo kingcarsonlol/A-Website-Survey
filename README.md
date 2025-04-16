@@ -1,38 +1,22 @@
-# sv
+# A Website Survey
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
+A reactive website survey that automatically updates its styling to match what the user inputs their website preferences
 
 ## Developing
+1. Install [Node.js](https://nodejs.org/en)
+2. Install `pnpm` by running `npm install -g pnpm`
+3. Run `pnpm dev` to open the website in dev mode
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+To connect a database to the project (after doing the previous steps):
+1. Add a database url in the `.env` file
+2. Run `pnpm drizzle-kit generate` to initialize the database schema
+3. Run `pnpm dev` to open the website in dev mode
 
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
 
 ## Building
 
-To create a production version of your app:
+Run `pnpm run build` to create a production version of your app.
 
-```bash
-npm run build
-```
+Run `npm run preview` to preview the production build locally
 
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+> To deploy the app in different environments, install the corresponding [adapter](https://svelte.dev/docs/kit/adapters) for the target environment.
