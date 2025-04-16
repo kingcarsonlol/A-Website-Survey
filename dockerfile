@@ -15,7 +15,8 @@ RUN pnpm list
 
 COPY . .
 
-RUN pnpm run build
+# Increase memory for build step
+RUN NODE_OPTIONS="--max-old-space-size=2048" pnpm run build
 
 # Production stage
 FROM node:22-alpine
